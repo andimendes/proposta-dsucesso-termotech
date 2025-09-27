@@ -3,1262 +3,353 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Proposta de Parceria | DSucesso & Termotech</title>
+    <title>Proposta de Estruturação Comercial – Termotech</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        /* --- Configurações Globais --- */
         :root {
-            --blue-dsucesso: #0030d8;
-            --gray-dsucesso: #9f9f9f;
-            --dark-gray: #333;
-            --light-gray: #f8f9fa;
-            --white: #ffffff;
-            --shadow: 0 10px 30px rgba(0, 48, 216, 0.1);
-            --shadow-hover: 0 20px 40px rgba(0, 48, 216, 0.15);
-            --green-success: #28a745;
-            --orange-warning: #fd7e14;
+            --brand-blue: #0030D8;
+            --brand-gray: #9F9F9F;
         }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
         body {
-            font-family: 'Poppins', sans-serif;
-            color: var(--dark-gray);
-            background-color: var(--white);
+            font-family: 'Inter', sans-serif;
             scroll-behavior: smooth;
-            overflow-x: hidden;
         }
-
-        /* --- Navegação Fixa --- */
-        .navbar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            padding: 15px 0;
-            transition: all 0.3s ease;
-            border-bottom: 1px solid rgba(0, 48, 216, 0.1);
-        }
-
-        .navbar.scrolled {
-            background: rgba(255, 255, 255, 0.98);
-            box-shadow: var(--shadow);
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 20px;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .navbar .logo img {
-            height: 50px;
-            width: auto;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 30px;
-            list-style: none;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--dark-gray);
-            font-weight: 500;
-            transition: color 0.3s ease;
-            position: relative;
-        }
-
-        .nav-links a:hover {
-            color: var(--blue-dsucesso);
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--blue-dsucesso);
-            transition: width 0.3s ease;
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        /* --- Estrutura dos Slides --- */
-        .slide {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 100px 40px 80px;
-            text-align: center;
-            position: relative;
-        }
-
-        .slide-content {
-            max-width: 1200px;
-            width: 100%;
-            z-index: 2;
-        }
-
-        /* --- Tipografia --- */
-        h1 {
-            font-size: 3.5rem;
-            color: var(--blue-dsucesso);
-            line-height: 1.2;
-            margin-bottom: 20px;
-            font-weight: 800;
-        }
-
-        h2 {
-            font-size: 2.8rem;
-            color: var(--blue-dsucesso);
-            margin-bottom: 30px;
-            font-weight: 700;
-        }
-
-        h3 {
-            font-size: 1.8rem;
-            color: var(--dark-gray);
-            margin-bottom: 15px;
+        .tab-active {
+            border-bottom-color: var(--brand-blue);
+            color: var(--brand-blue);
             font-weight: 600;
         }
-
-        p {
-            font-size: 1.2rem;
-            line-height: 1.7;
-            max-width: 800px;
-            margin: 0 auto;
+        .tab-content {
+            display: none;
         }
-
-        /* --- Slide 1: Capa --- */
-        #capa {
-            background: linear-gradient(135deg, var(--light-gray) 0%, #ffffff 100%);
-            position: relative;
-        }
-
-        #capa::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="%23f0f0f0"/><circle cx="75" cy="75" r="1" fill="%23f0f0f0"/><circle cx="50" cy="10" r="0.5" fill="%23e0e0e0"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
-            opacity: 0.3;
-            z-index: 1;
-        }
-
-        .hero-content {
-            z-index: 2;
-            position: relative;
-        }
-
-        .logos-partnership {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 40px;
-            margin: 50px 0;
-            font-size: 2rem;
-            color: var(--gray-dsucesso);
-        }
-
-        .logos-partnership img {
-            height: 100px;
-            width: auto;
-        }
-
-        .company-logo {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--blue-dsucesso);
-        }
-
-        .partnership-icon {
-            font-size: 3rem;
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-        }
-
-        .subtitle {
-            font-size: 1.3rem;
-            color: var(--gray-dsucesso);
-            margin-top: 20px;
-            font-style: italic;
-            font-weight: 400;
-        }
-
-        .scroll-indicator {
-            position: absolute;
-            bottom: 30px;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 2rem;
-            color: var(--blue-dsucesso);
-            animation: bounce 2s infinite;
-            cursor: pointer;
-            transition: color 0.3s ease;
-        }
-
-        .scroll-indicator:hover {
-            color: var(--dark-gray);
-        }
-
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
-            40% { transform: translateX(-50%) translateY(-15px); }
-            60% { transform: translateX(-50%) translateY(-8px); }
-        }
-
-        /* --- Slide 2: Introdução --- */
-        #intro {
-            background: var(--white);
-        }
-
-        #intro p {
-            font-size: 1.4rem;
-            line-height: 1.8;
-        }
-
-        .highlight {
-            color: var(--blue-dsucesso);
-            font-weight: 700;
-            position: relative;
-        }
-
-        .highlight::after {
-            content: '';
-            position: absolute;
-            bottom: 2px;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, transparent, var(--blue-dsucesso), transparent);
-            opacity: 0.3;
-        }
-
-        .visual-metaphor {
-            font-size: 4rem;
-            margin: 50px 0;
-            opacity: 0;
-            animation: fadeInUp 1s ease forwards;
-            animation-delay: 0.5s;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* --- Slide 3: Solução --- */
-        #solucao {
-            background: var(--light-gray);
-        }
-
-        .fases-grid-container {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 30px;
-            margin-top: 50px;
-        }
-
-        .fase-grid-item {
-            background: var(--white);
-            border-radius: 20px;
-            box-shadow: var(--shadow);
-            transition: all 0.3s ease;
-            overflow: hidden;
-        }
-
-        .fase-grid-item:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-hover);
-        }
-
-        .fase-grid-header {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            padding: 25px;
-            cursor: pointer;
-            background: linear-gradient(135deg, #f8f9fa, #ffffff);
-        }
-
-        .fase-grid-header .fase-icon {
-            font-size: 3rem;
-        }
-
-        .fase-grid-header .fase-info h3 {
-            font-size: 1.5rem;
-            margin: 0;
-        }
-
-        .fase-grid-header .fase-info p {
-            font-size: 1rem;
-            color: var(--gray-dsucesso);
-            margin: 0;
-        }
-
-        .fase-grid-header .expand-btn {
-            margin-left: auto;
-            background: none;
-            border: none;
-            font-size: 2rem;
-            color: var(--blue-dsucesso);
-            cursor: pointer;
-            transition: transform 0.3s ease;
-        }
-
-        .fase-details {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.5s ease;
-        }
-
-        .fase-details.expanded {
-            max-height: 1000px;
-        }
-
-        .details-content {
-            padding: 0 25px 25px;
-            text-align: left;
-        }
-
-        .details-content h4 {
-            font-size: 1.2rem;
-            color: var(--blue-dsucesso);
-            margin-top: 20px;
-            margin-bottom: 10px;
-        }
-
-        .details-content ul {
-            list-style: none;
-            padding-left: 0;
-        }
-
-        .details-content ul li {
-            margin-bottom: 10px;
-            line-height: 1.6;
-        }
-
-        /* --- Slide 4: Sobre a DSucesso --- */
-        #sobre {
-            background: var(--white);
-        }
-
-        .sobre-content {
-            display: flex;
-            align-items: center;
-            gap: 50px;
-            text-align: left;
-        }
-
-        .sobre-logo {
-            flex-shrink: 0;
-        }
-
-        .sobre-logo img {
-            width: 200px;
-            height: auto;
-        }
-
-        .sobre-text {
-            flex: 1;
-        }
-
-        .sobre-text p {
-            margin-bottom: 20px;
-        }
-
-        .sobre-stats {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-            margin-top: 40px;
-        }
-
-        .stat-item {
-            text-align: center;
-            padding: 20px;
-            background: var(--light-gray);
-            border-radius: 15px;
-        }
-
-        .stat-number {
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: var(--blue-dsucesso);
+        .tab-content-active {
             display: block;
+            animation: fadeIn 0.5s ease-in-out;
         }
-
-        .stat-label {
-            font-size: 1rem;
-            color: var(--gray-dsucesso);
-            margin-top: 5px;
+        .step-card, .result-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-
-        /* --- Slide 5: Cronograma --- */
-        #cronograma {
-            background: linear-gradient(135deg, var(--blue-dsucesso) 0%, #0025b3 100%);
-            color: var(--white);
+        .step-card:hover, .result-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
         }
-
-        #cronograma h2 {
-            color: var(--white);
-        }
-
-        .timeline-container {
-            position: relative;
-            max-width: 800px;
-            margin: 50px auto 0;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 25px;
-            padding: 40px;
-            backdrop-filter: blur(10px);
-            border: 2px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .timeline {
-            position: relative;
-            padding: 20px 0;
-        }
-
-        .timeline::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 4px;
-            height: 100%;
-            background: linear-gradient(to bottom, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.3));
-            border-radius: 2px;
-        }
-
-        .timeline-item {
-            position: relative;
-            margin: 40px 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .timeline-item::before {
-            content: attr(data-quarter);
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 40px;
-            height: 40px;
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.7));
-            border: 3px solid var(--white);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            color: var(--blue-dsucesso);
-            font-size: 1.1rem;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-        }
-
-        .timeline-content {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 25px;
-            border-radius: 15px;
-            max-width: 300px;
-            text-align: center;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(5px);
-        }
-
-        .timeline-item:nth-child(odd) .timeline-content {
-            margin-right: auto;
-            margin-left: calc(50% + 60px);
-        }
-
-        .timeline-item:nth-child(even) .timeline-content {
-            margin-left: auto;
-            margin-right: calc(50% + 60px);
-        }
-
-        .timeline-title {
-            font-size: 1.3rem;
-            font-weight: 600;
-            margin-bottom: 10px;
-            color: var(--white);
-        }
-
-        .timeline-description {
-            font-size: 1rem;
-            line-height: 1.5;
-            color: rgba(255, 255, 255, 0.9);
-        }
-
-        /* --- Slide 6: Resultados Esperados --- */
-        #resultados {
-            background: var(--white);
-        }
-
-        .resultados-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 40px;
-            margin-top: 50px;
-        }
-
-        .resultado-card {
-            background: linear-gradient(135deg, var(--light-gray), #ffffff);
-            padding: 40px;
-            border-radius: 20px;
-            box-shadow: var(--shadow);
-            text-align: center;
-            transition: all 0.3s ease;
-        }
-
-        .resultado-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-hover);
-        }
-
-        .resultado-icon {
-            font-size: 4rem;
-            margin-bottom: 20px;
-            display: block;
-        }
-
-        .resultado-title {
-            font-size: 1.8rem;
-            color: var(--blue-dsucesso);
-            margin-bottom: 15px;
-            font-weight: 700;
-        }
-
-        .resultado-description {
-            font-size: 1.1rem;
-            line-height: 1.6;
-            color: var(--dark-gray);
-        }
-
-        .resultado-stat {
-            font-size: 2rem;
-            font-weight: 800;
-            color: var(--green-success);
-            margin-top: 15px;
-            display: block;
-        }
-
-        /* --- Slide 7: Investimento --- */
-        #investimento {
-            background: linear-gradient(135deg, var(--light-gray) 0%, #ffffff 100%);
-        }
-
-        .investimento-card {
-            background: var(--white);
-            padding: 60px;
-            border-radius: 30px;
-            box-shadow: var(--shadow-hover);
-            max-width: 600px;
-            margin: 50px auto 0;
-            text-align: center;
-        }
-
-        .investimento-valor {
-            font-size: 4rem;
-            font-weight: 800;
-            color: var(--blue-dsucesso);
-            margin-bottom: 10px;
-            display: block;
-        }
-
-        .investimento-periodo {
-            font-size: 1.5rem;
-            color: var(--gray-dsucesso);
-            margin-bottom: 30px;
-        }
-
-        .investimento-beneficios {
-            text-align: left;
-            margin-top: 40px;
-        }
-
-        .investimento-beneficios h4 {
-            font-size: 1.4rem;
-            color: var(--blue-dsucesso);
-            margin-bottom: 20px;
-            text-align: center;
-        }
-
-        .investimento-beneficios ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .investimento-beneficios ul li {
-            padding: 10px 0;
-            border-bottom: 1px solid var(--light-gray);
-            font-size: 1.1rem;
-            line-height: 1.5;
-        }
-
-        .investimento-beneficios ul li:before {
-            content: '✓';
-            color: var(--green-success);
-            font-weight: bold;
-            margin-right: 10px;
-        }
-
-        /* --- Slide 8: Próximos Passos --- */
-        #cta {
-            background: linear-gradient(135deg, var(--blue-dsucesso) 0%, #0025b3 100%);
-            color: var(--white);
-        }
-
-        #cta h2 {
-            color: var(--white);
-        }
-
-        .cta-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .cta-buttons {
-            display: flex;
-            gap: 30px;
-            justify-content: center;
-            margin-top: 50px;
-            flex-wrap: wrap;
-        }
-
-        .cta-button {
-            padding: 20px 40px;
-            font-size: 1.3rem;
-            font-weight: 600;
-            border: none;
-            border-radius: 50px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            box-shadow: var(--shadow);
-        }
-
-        .cta-approve {
-            background: var(--white);
-            color: var(--blue-dsucesso);
-        }
-
-        .cta-approve:hover {
-            background: var(--light-gray);
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-hover);
-        }
-
-        .cta-schedule {
-            background: transparent;
-            color: var(--white);
-            border: 2px solid var(--white);
-        }
-
-        .cta-schedule:hover {
-            background: var(--white);
-            color: var(--blue-dsucesso);
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-hover);
-        }
-
-        .contact-info {
-            margin-top: 50px;
-            padding: 30px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .contact-info h4 {
-            color: var(--white);
-            font-size: 1.4rem;
-            margin-bottom: 20px;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            margin-bottom: 15px;
-            font-size: 1.1rem;
-        }
-
-        .contact-item a {
-            color: var(--white);
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .contact-item a:hover {
-            color: var(--light-gray);
-        }
-
-        /* --- Animações --- */
-        .fade-in {
-            opacity: 0;
-            animation: fadeIn 1s ease forwards;
-        }
-
-        .fade-in-delay-1 {
-            animation-delay: 0.3s;
-        }
-
-        .fade-in-delay-2 {
-            animation-delay: 0.6s;
-        }
-
-        .fade-in-delay-3 {
-            animation-delay: 0.9s;
-        }
-
         @keyframes fadeIn {
-            to {
-                opacity: 1;
-            }
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
-
-        /* --- Responsividade --- */
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2.5rem;
-            }
-
-            h2 {
-                font-size: 2rem;
-            }
-
-            .slide {
-                padding: 80px 20px 60px;
-            }
-
-            .nav-links {
-                display: none;
-            }
-
-            .logos-partnership {
-                flex-direction: column;
-                gap: 20px;
-            }
-
-            .fases-grid-container {
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
-
-            .fase-grid-item {
-                padding: 20px;
-            }
-
-            .fase-grid-header {
-                flex-direction: column;
-                text-align: center;
-                gap: 15px;
-            }
-
-            .sobre-content {
-                flex-direction: column;
-                text-align: center;
-                gap: 30px;
-            }
-
-            .cta-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .resultados-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .timeline-item:nth-child(odd) .timeline-content,
-            .timeline-item:nth-child(even) .timeline-content {
-                margin-left: auto;
-                margin-right: auto;
-                margin-top: 60px;
-            }
+        .fade-in-load {
+            animation: fadeIn 0.8s ease-in-out;
         }
     </style>
 </head>
-<body>
-    <!-- Navegação Fixa -->
-    <nav class="navbar" id="navbar">
-        <div class="nav-container">
-            <div class="logo">
-                <img src="https://f005.backblazeb2.com/file/DSucesso/1.png" alt="DSucesso">
-            </div>
-            <ul class="nav-links">
-                <li><a href="#intro">Introdução</a></li>
-                <li><a href="#solucao">Solução</a></li>
-                <li><a href="#cronograma">Cronograma</a></li>
-                <li><a href="#resultados">Resultados</a></li>
-                <li><a href="#investimento">Investimento</a></li>
-                <li><a href="#cta">Próximos Passos</a></li>
-            </ul>
-        </div>
-    </nav>
+<body class="bg-gray-100 text-gray-800">
 
-    <!-- Slide 1: Capa -->
-    <section id="capa" class="slide">
-        <div class="slide-content">
-            <div class="hero-content">
-                <h1 class="fade-in">Proposta de Parceria Comercial</h1>
-                
-                <div class="logos-partnership fade-in fade-in-delay-1">
-                    <img src="https://f005.backblazeb2.com/file/DSucesso/1.png" alt="DSucesso">
-                    <span class="partnership-icon">🤝</span>
-                    <img src="https://www.termotech.com.br/_nuxt/img/logo-termotech-climatizacao.8a7c4b0.svg" alt="Termotech">
-                </div>
-                
-                <p class="subtitle fade-in fade-in-delay-2">
-                    Estruturação do Departamento Comercial para Crescimento Sustentável
+    <div class="container mx-auto p-4 sm:p-6 lg:p-8">
+        
+        <!-- Cabeçalho -->
+        <header class="text-center mb-10 fade-in-load">
+            <img src="https://f005.backblazeb2.com/file/DSucesso/1.png" alt="Logo D'Sucesso" class="mx-auto h-72 w-auto mb-6">
+            <h1 class="text-3xl sm:text-4xl font-bold text-gray-800">Proposta de Estruturação do Departamento Comercial</h1>
+            <img src="https://www.termotech.com.br/_nuxt/img/logo-termotech-climatizacao.8a7c4b0.svg" alt="Logo da Termotech" class="mx-auto h-20 w-auto mt-4">
+        </header>
+        
+        <!-- Filosofia Central -->
+        <div class="bg-white rounded-2xl shadow-lg p-8 mb-10 fade-in-load">
+            <h2 class="text-2xl font-bold text-center mb-6 text-gray-800">Filosofia Central: Venda Consultiva Baseada em Valor e Confiabilidade</h2>
+            <div class="flex items-center justify-center p-6 bg-blue-50 rounded-lg border border-blue-100">
+                 <p class="text-center text-lg text-[#001a75] leading-relaxed max-w-4xl">
+                    O pilar da nossa estratégia não será o preço, mas sim os diferenciais da Termotech: <strong>qualidade, mão de obra qualificada e pronto atendimento</strong>. O vendedor será um <strong>consultor de climatização</strong>, que entende as dores críticas dos clientes e apresenta a Termotech como a solução mais confiável e de melhor custo-benefício a longo prazo.
                 </p>
             </div>
-            
-            <div class="scroll-indicator" onclick="document.getElementById('intro').scrollIntoView()">
-                ⬇️
+        </div>
+
+        <!-- Plano de Implantação -->
+        <div class="bg-white rounded-2xl shadow-lg p-6 sm:p-8 mb-10 fade-in-load">
+            <h2 class="text-2xl font-bold text-center mb-8 text-gray-800">Programa de Implantação: Passo a Passo</h2>
+
+            <div class="border-b border-gray-200 mb-8">
+                <nav class="flex flex-wrap -mb-px justify-center" id="tabs">
+                    <button data-tab="fase1" class="tab-btn tab-active text-base sm:text-lg py-4 px-3 sm:px-6 block border-b-2 border-transparent hover:bg-gray-100 rounded-t-md">Fase 1: Diagnóstico</button>
+                    <button data-tab="fase2" class="tab-btn text-base sm:text-lg py-4 px-3 sm:px-6 block border-b-2 border-transparent hover:bg-gray-100 rounded-t-md">Fase 2: Estruturação</button>
+                    <button data-tab="fase3" class="tab-btn text-base sm:text-lg py-4 px-3 sm:px-6 block border-b-2 border-transparent hover:bg-gray-100 rounded-t-md">Fase 3: Execução</button>
+                    <button data-tab="fase4" class="tab-btn text-base sm:text-lg py-4 px-3 sm:px-6 block border-b-2 border-transparent hover:bg-gray-100 rounded-t-md">Fase 4: Otimização</button>
+                </nav>
             </div>
-        </div>
-    </section>
 
-    <!-- Slide 2: Introdução -->
-    <section id="intro" class="slide">
-        <div class="slide-content">
-            <h2 class="fade-in">O Momento da Termotech</h2>
-            <div class="visual-metaphor">🏗️ ➡️ 🏢</div>
-            <p class="fade-in fade-in-delay-1">
-                A Termotech possui uma <span class="highlight">base sólida de mais de 1000 clientes</span> e reconhecida expertise técnica no mercado de climatização. Chegou o momento de transformar essa excelência operacional em uma <span class="highlight">máquina comercial de alta performance</span>.
-            </p>
-            <br>
-            <p class="fade-in fade-in-delay-2">
-                Nossa proposta é estruturar um departamento comercial que não apenas venda, mas que <span class="highlight">consulte, eduque e fidelize</span>, posicionando a Termotech como líder em soluções de climatização para o setor de saúde e empresarial.
-            </p>
-        </div>
-    </section>
-
-    <!-- Slide 3: Solução -->
-    <section id="solucao" class="slide">
-        <div class="slide-content">
-            <h2 class="fade-in">Programa de Estruturação do Departamento Comercial</h2>
-            <p class="fade-in fade-in-delay-1" style="font-size: 1.3rem; margin-bottom: 40px; color: var(--dark-gray);">
-                Um plano de ação claro para construir o departamento do zero de forma organizada e eficiente, baseado em <strong>Venda Consultiva</strong> e focado nos diferenciais da Termotech.
-            </p>
-
-            <!-- Fases em Grid -->
-            <div class="fases-grid-container fade-in fade-in-delay-2">
+            <div id="tab-contents">
                 <!-- Fase 1 -->
-                <div class="fase-grid-item">
-                    <div class="fase-grid-header" onclick="toggleDetails(1)">
-                        <span class="fase-icon">🏛️</span>
-                        <div class="fase-info">
-                            <h3>Fase 1: Diagnóstico</h3>
-                            <p class="fase-subtitle">A Fundação (Semanas 1-3)</p>
-                        </div>
-                        <button class="expand-btn">
-                            <span class="expand-icon">▼</span>
-                        </button>
+                <div id="fase1" class="tab-content tab-content-active">
+                    <div class="text-center mb-8">
+                        <h3 class="text-xl font-semibold text-[--brand-blue]">Fase 1: Diagnóstico e Planejamento <span class="text-sm font-normal text-gray-500">(Semanas 1-3)</span></h3>
+                        <p class="mt-2 text-gray-600 max-w-2xl mx-auto">Esta fase é a mais crucial para alinhar todos os esforços futuros.</p>
                     </div>
-                    <div class="fase-details" id="details-1">
-                        <div class="details-content">
-                            <h4>🎯 Objetivo</h4>
-                            <p>Mergulhar nos dados do ERP para segmentar os clientes atuais e criar um "retrato" do cliente perfeito para cada segmento.</p>
-                            <h4>📋 Passos Detalhados</h4>
-                            <ul>
-                                <li><strong>Análise da Carteira Atual (+1000 clientes):</strong> Classificar por segmento, serviço e frequência para identificar os clientes mais lucrativos e fiéis.</li>
-                                <li><strong>Definição do Perfil de Cliente Ideal (ICP):</strong> Criar um "retrato" detalhado do cliente perfeito para cada segmento, focando no setor de saúde.</li>
-                                <li><strong>Mapeamento da Jornada do Cliente:</strong> Desenhar o caminho desde a descoberta do problema até a contratação e pós-venda.</li>
-                                <li><strong>Análise de Mercado e Concorrência:</strong> Estudo do cenário de mercado, identificação de oportunidades e análise das estratégias dos concorrentes diretos e indiretos.</li>
-                                <li><strong>Definição de Metas SMART:</strong> Estabelecimento de metas de vendas e crescimento (curto, médio e longo prazo) que sejam Específicas, Mensuráveis, Atingíveis, Relevantes e Temporizáveis.</li>
-                                <li><strong>Desenho da Jornada do Cliente:</strong> Mapeamento completo da jornada do cliente, desde a prospecção até o pós-venda, identificando pontos de contato e oportunidades de melhoria.</li>
-                            </ul>
-                            <h4>📦 Entregável Principal</h4>
-                            <p>Diagnóstico comercial completo, perfil do ICP, plano de metas detalhado e mapa da jornada do cliente.</p>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                        <div class="step-card bg-gray-50 p-6 rounded-lg border border-gray-200 flex flex-col items-center text-center">
+                            <div class="flex-shrink-0 bg-blue-100 text-[--brand-blue] rounded-full p-3 mb-4"><svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16l2.879-2.879a3 3 0 014.242 0L20 18M10 12l.394-.394a3 3 0 014.242 0L17 14M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2"></path></svg></div>
+                            <h4 class="font-bold text-lg text-gray-800">Passo 1: Análise da Carteira</h4>
+                            <p class="mt-2 text-gray-600 text-sm">Identificar os clientes mais lucrativos e fiéis nos dados do ERP.</p>
+                        </div>
+                        <div class="step-card bg-gray-50 p-6 rounded-lg border border-gray-200 flex flex-col items-center text-center">
+                            <div class="flex-shrink-0 bg-blue-100 text-[--brand-blue] rounded-full p-3 mb-4"><svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z"></path></svg></div>
+                            <h4 class="font-bold text-lg text-gray-800">Passo 2: Definição do ICP</h4>
+                            <p class="mt-2 text-gray-600 text-sm">Criar um "retrato" do cliente perfeito para focar a prospecção.</p>
+                        </div>
+                        <div class="step-card bg-gray-50 p-6 rounded-lg border border-gray-200 flex flex-col items-center text-center">
+                            <div class="flex-shrink-0 bg-blue-100 text-[--brand-blue] rounded-full p-3 mb-4"><svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 5l7 7-7 7M5 5l7 7-7 7"></path></svg></div>
+                            <h4 class="font-bold text-lg text-gray-800">Passo 3: Mapeamento da Jornada</h4>
+                             <p class="mt-2 text-gray-600 text-sm">Desenhar o caminho do cliente para criar um discurso de vendas coeso.</p>
+                        </div>
+                         <div class="step-card bg-gray-50 p-6 rounded-lg border border-gray-200 flex flex-col items-center text-center">
+                            <div class="flex-shrink-0 bg-blue-100 text-[--brand-blue] rounded-full p-3 mb-4"><svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z"></path></svg></div>
+                            <h4 class="font-bold text-lg text-gray-800">Passo 4: Definição de Metas e KPIs</h4>
+                            <p class="mt-2 text-gray-600 text-sm">Estabelecer metas claras e mensuráveis para uma régua de sucesso.</p>
                         </div>
                     </div>
                 </div>
 
                 <!-- Fase 2 -->
-                <div class="fase-grid-item">
-                    <div class="fase-grid-header" onclick="toggleDetails(2)">
-                        <span class="fase-icon">⚙️</span>
-                        <div class="fase-info">
-                            <h3>Fase 2: Estruturação</h3>
-                            <p class="fase-subtitle">A Engrenagem (Semanas 4-6)</p>
-                        </div>
-                        <button class="expand-btn">
-                            <span class="expand-icon">▼</span>
-                        </button>
+                 <div id="fase2" class="tab-content">
+                    <div class="text-center mb-8">
+                        <h3 class="text-xl font-semibold text-[--brand-blue]">Fase 2: Estruturação da Equipe e Ferramentas <span class="text-sm font-normal text-gray-500">(Semanas 4-6)</span></h3>
+                        <p class="mt-2 text-gray-600 max-w-2xl mx-auto">Montar a máquina de vendas com as pessoas e tecnologias certas.</p>
                     </div>
-                    <div class="fase-details" id="details-2">
-                        <div class="details-content">
-                            <h4>🎯 Objetivo</h4>
-                            <p>Começar com uma estrutura enxuta: SDR para prospecção e Closer para vendas técnicas, além de implementar as ferramentas necessárias.</p>
-                            <h4>📋 Passos Detalhados</h4>
-                            <ul>
-                                <li><strong>Desenho da Estrutura da Equipe:</strong> Definição de cargos, responsabilidades, hierarquia e indicadores de performance para cada membro da equipe.</li>
-                                <li><strong>Processo de Recrutamento e Seleção:</strong> Utilizar a MoBe RH para desenhar o perfil da vaga e conduzir o processo.</li>
-                                <li><strong>Implementação de CRM:</strong> Escolha e configuração de ferramenta simples (Pipedrive, Agendor) para organizar funil de vendas e automatizar follow-ups.</li>
-                                <li><strong>Criação do Sales Kit:</strong> Apresentação institucional, modelos de proposta, estudos de caso, scripts de prospecção - tudo focado nos diferenciais da Termotech.</li>
-                                <li><strong>Processo de Vendas Consultivas:</strong> Desenvolvimento de metodologia baseada em valor e confiabilidade.</li>
-                            </ul>
-                            <h4>📦 Entregável Principal</h4>
-                            <p>Estrutura da equipe definida, CRM implantado e Sales Kit completo.</p>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                       <div class="step-card bg-gray-50 p-6 rounded-lg border border-gray-200 flex flex-col items-center text-center">
+                            <div class="flex-shrink-0 bg-blue-100 text-[--brand-blue] rounded-full p-3 mb-4"><svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg></div>
+                            <h4 class="font-bold text-lg text-gray-800">Passo 1: Estrutura da Equipe</h4>
+                            <p class="mt-2 text-gray-600 text-sm">Começar com SDR (prospecção) e Closer (fechamento).</p>
                         </div>
-                    </div>
-                </div>
-
-                <!-- Fase 3 -->
-                <div class="fase-grid-item">
-                    <div class="fase-grid-header" onclick="toggleDetails(3)">
-                        <span class="fase-icon">🚀</span>
-                        <div class="fase-info">
-                            <h3>Fase 3: Execução</h3>
-                            <p class="fase-subtitle">Hora de Ligar os Motores (Semanas 7-12)</p>
+                        <div class="step-card bg-gray-50 p-6 rounded-lg border border-gray-200 flex flex-col items-center text-center">
+                           <div class="flex-shrink-0 bg-blue-100 text-[--brand-blue] rounded-full p-3 mb-4"><svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M15 21a6 6 0 00-9-5.197m0 0A5.995 5.995 0 0012 12a5.995 5.995 0 00-3 5.197z"></path></svg></div>
+                            <h4 class="font-bold text-lg text-gray-800">Passo 2: Recrutamento</h4>
+                            <p class="mt-2 text-gray-600 text-sm">Usar a MoBe RH para desenhar o perfil e conduzir a seleção.</p>
                         </div>
-                        <button class="expand-btn">
-                            <span class="expand-icon">▼</span>
-                        </button>
-                    </div>
-                    <div class="fase-details" id="details-3">
-                        <div class="details-content">
-                            <h4>🎯 Objetivo</h4>
-                            <p>Treinar a nova equipe e iniciar a prospecção ativa, começando pela base de +1000 clientes existentes.</p>
-                            <h4>📋 Passos Detalhados</h4>
-                            <ul>
-                                <li><strong>Treinamento Intensivo (Onboarding):</strong> Cultura Termotech, detalhes técnicos, ICP, uso do CRM e técnicas de venda consultiva.</li>
-                                <li><strong>Início da Prospecção Ativa - Alvo Ouro:</strong> Ligar para clientes que só fizeram manutenção corretiva e oferecer contratos de manutenção preventiva.</li>
-                                <li><strong>Prospecção de Novos Clientes:</strong> Utilizar o ICP para encontrar novas oportunidades no mercado de saúde e empresarial.</li>
-                                <li><strong>Acompanhamento e Feedback:</strong> Reuniões semanais para analisar resultados, ajustar scripts e dar suporte à equipe.</li>
-                            </ul>
-                            <h4>📦 Entregável Principal</h4>
-                            <p>Equipe treinada, prospecção ativa em andamento e primeiros resultados de vendas.</p>
+                        <div class="step-card bg-gray-50 p-6 rounded-lg border border-gray-200 flex flex-col items-center text-center">
+                            <div class="flex-shrink-0 bg-blue-100 text-[--brand-blue] rounded-full p-3 mb-4"><svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg></div>
+                            <h4 class="font-bold text-lg text-gray-800">Passo 3: Tecnologia (CRM)</h4>
+                            <p class="mt-2 text-gray-600 text-sm">Adotar um CRM para organizar o funil e não perder vendas.</p>
+                        </div>
+                         <div class="step-card bg-gray-50 p-6 rounded-lg border border-gray-200 flex flex-col items-center text-center">
+                           <div class="flex-shrink-0 bg-blue-100 text-[--brand-blue] rounded-full p-3 mb-4"><svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7"></path><path d="M18 12.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5z" stroke-width="2"></path></svg></div>
+                            <h4 class="font-bold text-lg text-gray-800">Passo 4: "Sales Kit"</h4>
+                            <p class="mt-2 text-gray-600 text-sm">Desenvolver materiais de apoio para os vendedores.</p>
                         </div>
                     </div>
                 </div>
-
-                <!-- Fase 4 -->
-                <div class="fase-grid-item">
-                    <div class="fase-grid-header" onclick="toggleDetails(4)">
-                        <span class="fase-icon">📈</span>
-                        <div class="fase-info">
-                            <h3>Fase 4: Otimização</h3>
-                            <p class="fase-subtitle">Ajuste Fino e Crescimento (Semanas 13-24)</p>
-                        </div>
-                        <button class="expand-btn">
-                            <span class="expand-icon">▼</span>
-                        </button>
+                 <!-- Fase 3 -->
+                 <div id="fase3" class="tab-content">
+                    <div class="text-center mb-8">
+                        <h3 class="text-xl font-semibold text-[--brand-blue]">Fase 3: Execução e Capacitação <span class="text-sm font-normal text-gray-500">(Semanas 7-12)</span></h3>
+                        <p class="mt-2 text-gray-600 max-w-2xl mx-auto">Capacitar a equipe e começar a vender ativamente.</p>
                     </div>
-                    <div class="fase-details" id="details-4">
-                        <div class="details-content">
-                            <h4>🎯 Objetivo</h4>
-                            <p>Analisar os dados do CRM para otimizar o processo, identificar gargalos e escalar as estratégias que funcionam.</p>
-                            <h4>📋 Passos Detalhados</h4>
-                            <ul>
-                                <li><strong>Análise de Métricas e KPIs:</strong> Avaliação de taxas de conversão, Custo de Aquisição de Clientes (CAC), Lifetime Value (LTV) e outros indicadores.</li>
-                                <li><strong>Otimização do Funil de Vendas:</strong> Identificação de gargalos e implementação de melhorias para aumentar a eficiência.</li>
-                                <li><strong>Desenvolvimento de Novos Canais:</strong> Exploração de parcerias, marketing de conteúdo e outras estratégias para gerar leads.</li>
-                                <li><strong>Planejamento de Escala:</strong> Definição de estratégias para expandir a equipe e as operações de forma sustentável.</li>
-                            </ul>
-                            <h4>📦 Entregável Principal</h4>
-                            <p>Relatórios de performance, plano de otimização e estratégias de escala para o futuro.</p>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div class="step-card bg-gray-50 p-6 rounded-lg border border-gray-200 flex flex-col items-center text-center">
+                            <div class="flex-shrink-0 bg-blue-100 text-[--brand-blue] rounded-full p-3 mb-4"><svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 14l9-5-9-5-9 5 9 5z"></path><path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5zm0 0v6"></path></svg></div>
+                            <h4 class="font-bold text-lg text-gray-800">Passo 1: Treinamento Intensivo</h4>
+                            <p class="mt-2 text-gray-600 text-sm">Capacitar a nova equipe na cultura, serviços e técnicas de venda.</p>
+                        </div>
+                        <div class="step-card bg-gray-50 p-6 rounded-lg border border-gray-200 flex flex-col items-center text-center">
+                            <div class="flex-shrink-0 bg-blue-100 text-[--brand-blue] rounded-full p-3 mb-4"><svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg></div>
+                            <h4 class="font-bold text-lg text-gray-800">Passo 2: Prospecção Ativa</h4>
+                            <p class="mt-2 text-gray-600 text-sm">Focar na base de clientes para gerar receita rápida.</p>
+                        </div>
+                        <div class="step-card bg-gray-50 p-6 rounded-lg border border-gray-200 flex flex-col items-center text-center">
+                            <div class="flex-shrink-0 bg-blue-100 text-[--brand-blue] rounded-full p-3 mb-4"><svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg></div>
+                            <h4 class="font-bold text-lg text-gray-800">Passo 3: Rotinas Comerciais</h4>
+                            <p class="mt-2 text-gray-600 text-sm">Criar rituais de gestão para alinhar e motivar a equipe.</p>
+                        </div>
+                    </div>
+                </div>
+                 <!-- Fase 4 -->
+                 <div id="fase4" class="tab-content">
+                     <div class="text-center mb-8">
+                        <h3 class="text-xl font-semibold text-[--brand-blue]">Fase 4: Otimização e Escalada <span class="text-sm font-normal text-gray-500">(Contínuo)</span></h3>
+                        <p class="mt-2 text-gray-600 max-w-2xl mx-auto">Análise de dados e melhoria contínua dos processos.</p>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div class="step-card bg-gray-50 p-6 rounded-lg border border-gray-200 flex flex-col items-center text-center">
+                            <div class="flex-shrink-0 bg-blue-100 text-[--brand-blue] rounded-full p-3 mb-4"><svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 8v8m-4-5v5m-4-2v2m-2 4h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg></div>
+                            <h4 class="font-bold text-lg text-gray-800">Passo 1: Análise de Performance</h4>
+                            <p class="mt-2 text-gray-600 text-sm">Analisar KPIs para entender o que funciona e o que pode melhorar.</p>
+                        </div>
+                        <div class="step-card bg-gray-50 p-6 rounded-lg border border-gray-200 flex flex-col items-center text-center">
+                            <div class="flex-shrink-0 bg-blue-100 text-[--brand-blue] rounded-full p-3 mb-4"><svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg></div>
+                            <h4 class="font-bold text-lg text-gray-800">Passo 2: Coleta de Feedback</h4>
+                            <p class="mt-2 text-gray-600 text-sm">Usar informações do campo para refinar a oferta e a abordagem.</p>
+                        </div>
+                        <div class="step-card bg-gray-50 p-6 rounded-lg border border-gray-200 flex flex-col items-center text-center">
+                            <div class="flex-shrink-0 bg-blue-100 text-[--brand-blue] rounded-full p-3 mb-4"><svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h5M20 20v-5h-5M4 4l5 5M20 20l-5-5"></path><path d="M12 21a9 9 0 100-18 9 9 0 000 18z" stroke-width="2"></path></svg></div>
+                            <h4 class="font-bold text-lg text-gray-800">Passo 3: Aprimoramento Contínuo</h4>
+                            <p class="mt-2 text-gray-600 text-sm">Otimizar scripts, treinar a equipe e testar novas abordagens.</p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
-
-    <!-- Slide 4: Sobre a DSucesso -->
-    <section id="sobre" class="slide">
-        <div class="slide-content">
-            <h2 class="fade-in">Sobre a DSucesso</h2>
-            <div class="sobre-content fade-in fade-in-delay-1">
-                <div class="sobre-logo">
-                    <img src="https://f005.backblazeb2.com/file/DSucesso/1.png" alt="DSucesso">
-                </div>
-                <div class="sobre-text">
-                    <p>
-                        A DSucesso é uma consultoria especializada em <strong>estruturação e aceleração comercial</strong> para empresas que querem sair do improviso e construir um departamento comercial profissional e escalável.
-                    </p>
-                    <p>
-                        Nossa metodologia combina <strong>análise de dados, processos estruturados e tecnologia</strong> para transformar empresas técnicas em máquinas de vendas consultivas, sempre respeitando a cultura e os valores da empresa.
-                    </p>
-                    <p>
-                        Trabalhamos com empresas que já têm uma base sólida de clientes e querem <strong>profissionalizar suas vendas</strong> para alcançar crescimento consistente.
-                    </p>
-                </div>
-            </div>
-            
-            <div class="sobre-stats fade-in fade-in-delay-2">
-                <div class="stat-item">
-                    <span class="stat-number">+50</span>
-                    <span class="stat-label">Empresas Atendidas</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-number">+200%</span>
-                    <span class="stat-label">Crescimento Médio</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-number">6 meses</span>
-                    <span class="stat-label">ROI Médio</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Slide 5: Cronograma -->
-    <section id="cronograma" class="slide">
-        <div class="slide-content">
-            <h2 class="fade-in">Cronograma de Implementação</h2>
-            <p class="fade-in fade-in-delay-1" style="font-size: 1.3rem; margin-bottom: 40px; color: rgba(255,255,255,0.9);">
-                Um plano estruturado em 4 trimestres para construir e otimizar o departamento comercial da Termotech.
-            </p>
-
-            <div class="timeline-container fade-in fade-in-delay-2">
-                <div class="timeline">
-                    <div class="timeline-item" data-quarter="1">
-                        <div class="timeline-content">
-                            <h3 class="timeline-title">1º Trimestre</h3>
-                            <p class="timeline-description">
-                                <strong>Semanas 1-12:</strong> Diagnóstico completo, estruturação da equipe e implementação de ferramentas. Foco na base sólida para o crescimento.
-                            </p>
+        
+        <!-- Linha do Tempo Detalhada -->
+        <div class="bg-white rounded-2xl shadow-lg p-8 my-10 fade-in-load">
+            <h2 class="text-2xl font-bold text-center mb-12 text-gray-800">Linha do Tempo Detalhada</h2>
+            <div class="relative">
+                <!-- Vertical line -->
+                <div class="border-r-2 border-blue-100 absolute h-full top-0" style="left: 15px"></div>
+                <ul class="list-none m-0 p-0">
+                    <!-- Fase 1 -->
+                    <li class="mb-8">
+                        <div class="flex items-start">
+                            <div class="bg-[--brand-blue] rounded-full h-8 w-8 text-white text-center font-bold flex items-center justify-center mr-4 z-10 flex-shrink-0">1</div>
+                            <div class="bg-blue-50 p-4 rounded-lg shadow-md flex-1">
+                                <h3 class="font-bold text-lg text-[--brand-blue]">Fase 1: Diagnóstico e Planejamento</h3>
+                                <p class="text-sm text-gray-500 mb-2">Semanas 1-3</p>
+                                <ul class="list-disc list-inside text-sm text-gray-700 space-y-1">
+                                    <li>Análise da Carteira de Clientes</li>
+                                    <li>Definição do Perfil de Cliente Ideal (ICP)</li>
+                                    <li>Mapeamento da Jornada do Cliente</li>
+                                    <li>Definição de Metas e KPIs</li>
+                                </ul>
+                            </div>
                         </div>
-                    </div>
-                    
-                    <div class="timeline-item" data-quarter="2">
-                        <div class="timeline-content">
-                            <h3 class="timeline-title">2º Trimestre</h3>
-                            <p class="timeline-description">
-                                <strong>Semanas 13-24:</strong> Execução intensiva, treinamento da equipe e início da prospecção ativa. Primeiros resultados de vendas consultivas.
-                            </p>
+                    </li>
+                    <!-- Fase 2 -->
+                    <li class="mb-8">
+                        <div class="flex items-start">
+                             <div class="bg-[--brand-blue] rounded-full h-8 w-8 text-white text-center font-bold flex items-center justify-center mr-4 z-10 flex-shrink-0">2</div>
+                            <div class="bg-blue-50 p-4 rounded-lg shadow-md flex-1">
+                                <h3 class="font-bold text-lg text-[--brand-blue]">Fase 2: Estruturação</h3>
+                                <p class="text-sm text-gray-500 mb-2">Semanas 4-6</p>
+                                <ul class="list-disc list-inside text-sm text-gray-700 space-y-1">
+                                    <li>Desenho da Estrutura da Equipe</li>
+                                    <li>Processo de Recrutamento e Seleção</li>
+                                    <li>Implementação de CRM</li>
+                                    <li>Criação do "Sales Kit"</li>
+                                </ul>
+                            </div>
                         </div>
-                    </div>
-                    
-                    <div class="timeline-item" data-quarter="3">
-                        <div class="timeline-content">
-                            <h3 class="timeline-title">3º Trimestre</h3>
-                            <p class="timeline-description">
-                                <strong>Semanas 25-36:</strong> Otimização contínua, análise de métricas e ajustes no processo. Expansão para novos segmentos de mercado.
-                            </p>
+                    </li>
+                    <!-- Fase 3 -->
+                    <li class="mb-8">
+                         <div class="flex items-start">
+                             <div class="bg-[--brand-blue] rounded-full h-8 w-8 text-white text-center font-bold flex items-center justify-center mr-4 z-10 flex-shrink-0">3</div>
+                            <div class="bg-blue-50 p-4 rounded-lg shadow-md flex-1">
+                                <h3 class="font-bold text-lg text-[--brand-blue]">Fase 3: Execução</h3>
+                                <p class="text-sm text-gray-500 mb-2">Semanas 7-12</p>
+                                <ul class="list-disc list-inside text-sm text-gray-700 space-y-1">
+                                    <li>Treinamento Intensivo da Equipe</li>
+                                    <li>Início da Prospecção Ativa</li>
+                                    <li>Implementação das Rotinas Comerciais</li>
+                                </ul>
+                            </div>
                         </div>
-                    </div>
-                    
-                    <div class="timeline-item" data-quarter="4">
-                        <div class="timeline-content">
-                            <h3 class="timeline-title">4º Trimestre</h3>
-                            <p class="timeline-description">
-                                <strong>Semanas 37-48:</strong> Consolidação dos resultados, planejamento de escala e preparação para crescimento autônomo e sustentável.
-                            </p>
+                    </li>
+                    <!-- Fase 4 -->
+                    <li>
+                         <div class="flex items-start">
+                            <div class="bg-[--brand-blue] rounded-full h-8 w-8 text-white text-center font-bold flex items-center justify-center mr-4 z-10 flex-shrink-0">4</div>
+                            <div class="bg-blue-50 p-4 rounded-lg shadow-md flex-1">
+                                <h3 class="font-bold text-lg text-[--brand-blue]">Fase 4: Otimização e Escalada</h3>
+                                <p class="text-sm text-gray-500 mb-2">Contínuo</p>
+                                <ul class="list-disc list-inside text-sm text-gray-700 space-y-1">
+                                    <li>Análise de Performance (KPIs)</li>
+                                    <li>Coleta de Feedback do Mercado</li>
+                                    <li>Aprimoramento Contínuo</li>
+                                </ul>
+                            </div>
                         </div>
-                    </div>
-                </div>
+                    </li>
+                </ul>
             </div>
         </div>
-    </section>
 
-    <!-- Slide 6: Resultados Esperados -->
-    <section id="resultados" class="slide">
-        <div class="slide-content">
-            <h2 class="fade-in">Resultados Esperados</h2>
-            <p class="fade-in fade-in-delay-1" style="font-size: 1.3rem; margin-bottom: 40px; color: var(--dark-gray);">
-                Baseado em dados de mercado e nossa experiência com empresas similares, projetamos os seguintes resultados para a Termotech.
-            </p>
-
-            <div class="resultados-grid fade-in fade-in-delay-2">
-                <div class="resultado-card">
-                    <span class="resultado-icon">🏆</span>
-                    <h3 class="resultado-title">Posicionamento como Líder de Mercado</h3>
-                    <p class="resultado-description">
-                        Segundo a McKinsey, empresas que adotam vendas consultivas têm 37% mais chances de superar a concorrência. A Termotech se posicionará como referência em soluções de climatização.
-                    </p>
-                </div>
-
-                <div class="resultado-card">
-                    <span class="resultado-icon">💰</span>
-                    <h3 class="resultado-title">Criação de Ativo Escalável</h3>
-                    <p class="resultado-description">
-                        Harvard Business Review destaca que departamentos comerciais estruturados aumentam o valor da empresa em até 3x. Um ativo que gera receita recorrente e previsível.
-                    </p>
-                    <span class="resultado-stat">+300% ROI</span>
-                </div>
-
-                <div class="resultado-card">
-                    <span class="resultado-icon">📈</span>
-                    <h3 class="resultado-title">Crescimento Consistente</h3>
-                    <p class="resultado-description">
-                        Dados da Salesforce mostram que empresas com CRM estruturado aumentam vendas em 29%. Projetamos crescimento de 40-60% na receita no primeiro ano.
-                    </p>
-                    <span class="resultado-stat">+50% vendas</span>
-                </div>
-
-                <div class="resultado-card">
-                    <span class="resultado-icon">🔄</span>
-                    <h3 class="resultado-title">Receita Recorrente</h3>
-                    <p class="resultado-description">
-                        Contratos de manutenção preventiva geram receita previsível. Estudos indicam que 80% dos clientes preferem contratos anuais quando bem apresentados.
-                    </p>
-                    <span class="resultado-stat">80% recorrência</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Slide 7: Investimento -->
-    <section id="investimento" class="slide">
-        <div class="slide-content">
-            <h2 class="fade-in">Investimento</h2>
-            
-            <div class="investimento-card fade-in fade-in-delay-1">
-                <span class="investimento-valor">R$ 1.800,00</span>
-                <p class="investimento-periodo">por mês</p>
+        <!-- Resultados Esperados -->
+        <div class="bg-white rounded-2xl shadow-lg p-8 mb-10 fade-in-load">
+             <h2 class="text-2xl font-bold text-center mb-8 text-gray-800">Resultados Esperados com a Implementação</h2>
+             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 
-                <p style="font-size: 1.2rem; color: var(--dark-gray); line-height: 1.6;">
-                    Um investimento estratégico que se paga rapidamente através do aumento de vendas e da criação de um ativo valioso para a empresa.
-                </p>
-
-                <div class="investimento-beneficios">
-                    <h4>O que está incluído:</h4>
-                    <ul>
-                        <li>Diagnóstico completo da situação atual</li>
-                        <li>Estruturação do departamento comercial</li>
-                        <li>Implementação de CRM e ferramentas</li>
-                        <li>Treinamento da equipe de vendas</li>
-                        <li>Acompanhamento e otimização contínua</li>
-                        <li>Relatórios mensais de performance</li>
-                        <li>Suporte técnico e estratégico</li>
-                    </ul>
+                <div class="result-card bg-blue-50 p-6 rounded-lg flex items-start space-x-4">
+                    <div class="flex-shrink-0 text-[--brand-blue]"><svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg></div>
+                    <div>
+                        <h4 class="font-bold text-lg text-gray-700">Previsibilidade de Receita</h4>
+                        <p class="text-gray-600 mt-1">Base sólida de receita recorrente com contratos.</p>
+                    </div>
                 </div>
-            </div>
+
+                <div class="result-card bg-blue-50 p-6 rounded-lg flex items-start space-x-4">
+                     <div class="flex-shrink-0 text-[--brand-blue]"><svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v.01"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M15 11h.01M9 11h.01M12 5h.01M12 21a9 9 0 110-18 9 9 0 010 18z"></path></svg></div>
+                    <div>
+                        <h4 class="font-bold text-lg text-gray-700">Aumento do Faturamento</h4>
+                        <p class="text-gray-600 mt-1">Prospecção ativa e vendas de up-selling e cross-selling.</p>
+                    </div>
+                </div>
+
+                <div class="result-card bg-blue-50 p-6 rounded-lg flex items-start space-x-4">
+                     <div class="flex-shrink-0 text-[--brand-blue]"><svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path></svg></div>
+                    <div>
+                        <h4 class="font-bold text-lg text-gray-700">Eficiência Operacional</h4>
+                        <p class="text-gray-600 mt-1">Melhor planejamento da equipe técnica e do estoque.</p>
+                    </div>
+                </div>
+                 <div class="result-card bg-blue-50 p-6 rounded-lg flex items-start space-x-4">
+                     <div class="flex-shrink-0 text-[--brand-blue]"><svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path></svg></div>
+                    <div>
+                        <h4 class="font-bold text-lg text-gray-700">Fortalecimento da Marca</h4>
+                        <p class="text-gray-600 mt-1">Reforçar a imagem de líder em qualidade e confiabilidade.</p>
+                    </div>
+                </div>
+                <div class="result-card bg-blue-50 p-6 rounded-lg flex items-start space-x-4">
+                     <div class="flex-shrink-0 text-[--brand-blue]"><svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z"></path></svg></div>
+                    <div>
+                        <h4 class="font-bold text-lg text-gray-700">Ativo Escalável</h4>
+                        <p class="text-gray-600 mt-1">Processo comercial definido para crescimento sustentável.</p>
+                    </div>
+                </div>
+                <div class="result-card bg-blue-50 p-6 rounded-lg flex items-start space-x-4">
+                    <div class="flex-shrink-0 text-[--brand-blue]"><svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg></div>
+                    <div>
+                        <h4 class="font-bold text-lg text-gray-700">Inteligência de Mercado</h4>
+                        <p class="text-gray-600 mt-1">O comercial como "olhos e ouvidos" da empresa no mercado.</p>
+                    </div>
+                </div>
+             </div>
         </div>
-    </section>
 
-    <!-- Slide 8: Próximos Passos -->
-    <section id="cta" class="slide">
-        <div class="slide-content">
-            <h2 class="fade-in">Próximos Passos</h2>
-            
-            <div class="cta-content fade-in fade-in-delay-1">
-                <p style="font-size: 1.4rem; margin-bottom: 30px; color: rgba(255,255,255,0.9);">
-                    A Termotech tem tudo para se tornar a <strong>referência em climatização</strong> no seu mercado. O momento é agora, e a parceria com a DSucesso é o catalisador que faltava.
-                </p>
-                
-                <p style="font-size: 1.2rem; color: rgba(255,255,255,0.8);">
-                    Estamos prontos para começar essa jornada de transformação. A decisão de iniciar essa jornada é sua.
-                </p>
-            </div>
-
-            <div class="cta-buttons fade-in fade-in-delay-2">
-                <a href="#" class="cta-button cta-approve">
-                    ✅ Sim, quero aprovar esta proposta e começar!
-                </a>
-                <a href="#" class="cta-button cta-schedule">
-                    🗓️ Agendar uma reunião de 15 min para alinhar o início
-                </a>
-            </div>
-
-            <div class="contact-info fade-in fade-in-delay-3">
-                <h4>Informações de Contato</h4>
-                <div class="contact-item">
-                    <span>📱</span>
-                    <a href="https://wa.me/5516981385000" target="_blank">(16) 9 8138-5000</a>
-                </div>
-                <div class="contact-item">
-                    <span>📧</span>
-                    <a href="mailto:anderson@dsucesso.com.br">anderson@dsucesso.com.br</a>
-                </div>
-                <div class="contact-item">
-                    <span>📸</span>
-                    <a href="https://instagram.com/dsucesso.oficial" target="_blank">@dsucesso.oficial</a>
-                </div>
-            </div>
+        <!-- Investimento -->
+        <div class="bg-white rounded-2xl shadow-lg p-8 mb-10 fade-in-load">
+             <h2 class="text-2xl font-bold text-center mb-6 text-gray-800">Investimento</h2>
+             <div class="text-center">
+                <p class="text-gray-600 text-lg mb-2">Para a implementação completa deste plano estratégico:</p>
+                <p class="text-4xl font-bold text-[--brand-blue]">R$ 1.800,00<span class="text-2xl font-medium text-gray-500"> /mês</span></p>
+             </div>
         </div>
-    </section>
+
+        <!-- Rodapé -->
+        <footer class="text-center mt-12 text-gray-500">
+            <p>&copy; 2025 Anderson Mendes. Proposta preparada para Termotech.</p>
+        </footer>
+
+    </div>
 
     <script>
-        // Navegação suave
         document.addEventListener('DOMContentLoaded', function() {
-            // Navbar scroll effect
-            window.addEventListener('scroll', function() {
-                const navbar = document.getElementById('navbar');
-                if (window.scrollY > 50) {
-                    navbar.classList.add('scrolled');
-                } else {
-                    navbar.classList.remove('scrolled');
-                }
-            });
+            const tabs = document.querySelectorAll('.tab-btn');
+            const tabContents = document.querySelectorAll('.tab-content');
 
-            // Smooth scroll para links de navegação
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    const target = document.querySelector(this.getAttribute('href'));
-                    if (target) {
-                        target.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'start'
-                        });
-                    }
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    const target = tab.getAttribute('data-tab');
+
+                    tabs.forEach(t => t.classList.remove('tab-active'));
+                    tabContents.forEach(c => c.classList.remove('tab-content-active'));
+
+                    tab.classList.add('tab-active');
+                    document.getElementById(target).classList.add('tab-content-active');
                 });
             });
         });
-
-        // Função para expandir/recolher detalhes das fases
-        function toggleDetails(faseNumber) {
-            const detailsElement = document.getElementById(`details-${faseNumber}`);
-            const expandIcon = detailsElement.previousElementSibling.querySelector('.expand-icon');
-
-            if (detailsElement.classList.contains('expanded')) {
-                detailsElement.classList.remove('expanded');
-                expandIcon.style.transform = 'rotate(0deg)';
-            } else {
-                detailsElement.classList.add('expanded');
-                expandIcon.style.transform = 'rotate(180deg)';
-            }
-        }
     </script>
+
 </body>
 </html>
+
