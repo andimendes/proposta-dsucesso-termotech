@@ -67,10 +67,8 @@
             display: flex;
             align-items: center;
             gap: 10px;
-        }
-
-        .logo img {
-            height: 60px;
+               .navbar .logo {
+            height: 120px;
             width: auto;
         }
 
@@ -182,10 +180,16 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 30px;
-            margin: 40px 0;
+            gap: 40px;
+            margin: 50px 0;
             font-size: 2rem;
             color: var(--gray-dsucesso);
+        }
+
+        .logos-partnership img {
+            height: 180px;
+            width: auto;
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.1));
         }
 
         .company-logo {
@@ -581,21 +585,30 @@
             position: relative;
         }
 
-        .timeline {
+        .timeline-container {
             position: relative;
-            padding: 40px 0;
+            max-width: 900px;
+            margin: 60px auto;
+            padding: 50px 0;
+            background: linear-gradient(135deg, rgba(0, 48, 216, 0.05) 0%, rgba(255, 255, 255, 0.1) 100%);
+            border-radius: 25px;
+            box-shadow: 0 10px 30px rgba(0, 48, 216, 0.1);
         }
 
-        .timeline::before {
-            content: '';
+        .timeline-line {
             position: absolute;
             top: 50%;
-            left: 0;
-            transform: translateY(-50%);
-            width: 100%;
-            height: 6px;
-            background: linear-gradient(90deg, var(--gray-dsucesso), var(--blue-dsucesso), var(--gray-dsucesso));
-            border-radius: 3px;
+            left: 5%;
+            right: 5%;
+            height: 8px;
+            background: linear-gradient(90deg, 
+                var(--blue-dsucesso) 0%, 
+                rgba(0, 48, 216, 0.8) 25%, 
+                rgba(0, 48, 216, 0.6) 50%, 
+                rgba(0, 48, 216, 0.8) 75%, 
+                var(--blue-dsucesso) 100%);
+            border-radius: 4px;
+            box-shadow: 0 2px 8px rgba(0, 48, 216, 0.3);
         }
 
         .timeline-items {
@@ -603,24 +616,40 @@
             justify-content: space-between;
             position: relative;
             z-index: 2;
+            padding: 0 5%;
         }
 
         .timeline-item {
-            width: 30px;
-            height: 30px;
-            background: var(--blue-dsucesso);
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--blue-dsucesso) 0%, #1a4bff 100%);
             border-radius: 50%;
             cursor: pointer;
             position: relative;
-            transition: all 0.3s ease;
-            border: 4px solid var(--white);
-            box-shadow: var(--shadow);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 5px solid var(--white);
+            box-shadow: 0 4px 15px rgba(0, 48, 216, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        .timeline-item::before {
+            content: attr(data-quarter);
+            position: absolute;
+            color: white;
+            font-size: 0.8rem;
+            font-weight: 600;
         }
 
         .timeline-item:hover {
-            transform: scale(1.3);
-            background: var(--dark-gray);
-        }
+            transform: scale(1.4);
+            background: linear-gradient(135deg, var(--dark-gray) 0%, #333 100%);
+            box-shadow: 0 8px 25px rgba(0, 48, 216, 0.4);
+        }}
 
         .timeline-tooltip {
             visibility: hidden;
@@ -1234,7 +1263,7 @@
             <div class="timeline-container fade-in fade-in-delay-2">
                 <div class="timeline">
                     <div class="timeline-items">
-                        <div class="timeline-item">
+                        <div class="timeline-item" data-quarter="1">
                             <div class="timeline-tooltip">
                                 <h4>1º Trimestre - Fundação</h4>
                                 <p><strong>Semanas 1-6:</strong> Diagnóstico completo e estruturação da equipe</p>
@@ -1243,7 +1272,7 @@
                                 <p><strong>Conexão:</strong> Fases 1 e 2 do programa</p>
                             </div>
                         </div>
-                        <div class="timeline-item">
+                        <div class="timeline-item" data-quarter="2">
                             <div class="timeline-tooltip">
                                 <h4>2º Trimestre - Execução</h4>
                                 <p><strong>Semanas 7-12:</strong> Treinamento intensivo e início da prospecção ativa</p>
@@ -1252,7 +1281,7 @@
                                 <p><strong>Conexão:</strong> Fase 3 do programa</p>
                             </div>
                         </div>
-                        <div class="timeline-item">
+                        <div class="timeline-item" data-quarter="3">
                             <div class="timeline-tooltip">
                                 <h4>3º Trimestre - Otimização</h4>
                                 <p><strong>Semanas 13-18:</strong> Análise de performance e refinamento dos processos</p>
@@ -1261,7 +1290,7 @@
                                 <p><strong>Conexão:</strong> Início da Fase 4 do programa</p>
                             </div>
                         </div>
-                        <div class="timeline-item">
+                        <div class="timeline-item" data-quarter="4">
                             <div class="timeline-tooltip">
                                 <h4>4º Trimestre - Escalabilidade</h4>
                                 <p><strong>Semanas 19-24:</strong> Escalada de vendas e garantia de autonomia</p>
@@ -1345,8 +1374,8 @@
             <h2 class="fade-in">Investimento na Parceria</h2>
             
             <div class="price-container fade-in fade-in-delay-1">
-                <div class="price">R$ 1.800</div>
-                <div class="price-period">por mês / 6 meses</div>
+                <div class="price">R$ 1.800,00</div>
+                <div class="price-period">por mês</div>
             </div>
             
             <p class="anchor-text fade-in fade-in-delay-2">
@@ -1392,7 +1421,25 @@
                 </a>
             </div>
             
-            <p class="fade-in fade-in-delay-3" style="margin-top: 40px; font-size: 1.1rem; color: rgba(255,255,255,0.9);">
+            <div class="contact-info fade-in fade-in-delay-3" style="margin-top: 50px; padding: 30px; background: rgba(255,255,255,0.1); border-radius: 20px; backdrop-filter: blur(10px);">
+                <h3 style="color: white; margin-bottom: 20px; font-size: 1.5rem;">Entre em Contato</h3>
+                <div style="display: flex; flex-wrap: wrap; gap: 30px; justify-content: center; align-items: center;">
+                    <div style="display: flex; align-items: center; gap: 10px; color: white;">
+                        <span style="font-size: 1.5rem;">📱</span>
+                        <span style="font-size: 1.1rem; font-weight: 500;">(16) 9 8138-5000</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 10px; color: white;">
+                        <span style="font-size: 1.5rem;">✉️</span>
+                        <span style="font-size: 1.1rem; font-weight: 500;">anderson@dsucesso.com.br</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 10px; color: white;">
+                        <span style="font-size: 1.5rem;">📸</span>
+                        <a href="https://instagram.com/dsucesso.oficial" target="_blank" style="color: white; text-decoration: none; font-size: 1.1rem; font-weight: 500; transition: opacity 0.3s ease;" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'">@dsucesso.oficial</a>
+                    </div>
+                </div>
+            </div>
+            
+            <p class="fade-in fade-in-delay-4" style="margin-top: 30px; font-size: 1.1rem; color: rgba(255,255,255,0.9);">
                 Estamos confiantes de que esta parceria será o catalisador para um novo capítulo de crescimento e sucesso para a Termotech.
             </p>
         </div>
